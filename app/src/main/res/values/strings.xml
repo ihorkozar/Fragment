@@ -7,4 +7,6 @@
     <string name="fragment_3">Fragment 3</string>
     <string name="change_color">Change color</string>
     <string name="change_fragment">Change fragment</string>
+    <string name="hint">Please enter the message</string>
+    <string name="create">Create</string>
 </resources>

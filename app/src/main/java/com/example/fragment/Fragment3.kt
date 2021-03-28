@@ -1,25 +1,44 @@
 package com.example.fragment
 
-import android.graphics.Color
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
 import androidx.fragment.app.Fragment
-import java.util.*
 
 class Fragment3 : Fragment() {
+
+    lateinit var listener: Fragment3.Fragment3Listener
+
+    interface Fragment3Listener {
+        fun sendText(text: String)
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is Fragment3.Fragment3Listener){
+            listener = context
+        } else{
+            throw RuntimeException(context.toString())
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_3, container, false)
-    }
-
-    fun updateColor(color: Int) {
-        val fragment = fragmentManager?.findFragmentById(R.id.container_3)
-        fragment?.view?.setBackgroundColor(color)
+        val view = inflater.inflate(R.layout.fragment_3, container, false)
+        val createBtn = view.findViewById<Button>(R.id.create_btn)
+        val editText = view.findViewById<TextView>(R.id.text_view)
+        if (editText.text.length > 3){
+            createBtn.visibility = View.VISIBLE
+            createBtn.setOnClickListener{
+                listener.sendText(editText.text.toString())
+            }
+        }
+        return view
     }
 }
