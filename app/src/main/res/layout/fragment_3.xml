@@ -12,19 +12,4 @@
         android:text="@string/fragment_3"
         android:layout_gravity="center"/>
 
-    <EditText
-        android:id="@+id/text_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/hint"
-        android:digits="@string/letters_and_numbers"/>
-
-    <Button
-        android:id="@+id/create_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/create"
-        android:layout_gravity="center"
-        android:clickable="false"/>
-
 </LinearLayout>

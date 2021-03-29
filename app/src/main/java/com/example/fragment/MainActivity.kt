@@ -2,10 +2,11 @@ package com.example.fragment
 
 import android.graphics.Color
 import android.os.Bundle
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import java.util.*
 
-class MainActivity : AppCompatActivity(), Fragment1.Fragment1Listener, Fragment3.Fragment3Listener {
+class MainActivity : AppCompatActivity(), Fragment1.Fragment1Listener, CustomDialogFragment.DialogListener {
 
     var colorFragment2: Int = 100
     var colorFragment3: Int = 100
@@ -59,7 +60,8 @@ class MainActivity : AppCompatActivity(), Fragment1.Fragment1Listener, Fragment3
         return Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256))
     }
 
-    override fun sendText(text: String) {
-        Fragment2().text.text = text
+    override fun sendText(sendText: String) {
+        val textView = Fragment2().view?.findViewById<TextView>(R.id.text_view)
+        textView?.text = sendText
     }
 }
