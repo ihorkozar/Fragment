@@ -16,7 +16,8 @@
         android:id="@+id/text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/hint"/>
+        android:hint="@string/hint"
+        android:digits="@string/letters_and_numbers"/>
 
     <Button
         android:id="@+id/create_btn"
@@ -24,6 +25,6 @@
         android:layout_height="wrap_content"
         android:text="@string/create"
         android:layout_gravity="center"
-        android:visibility="gone"/>
+        android:clickable="false"/>
 
 </LinearLayout>
