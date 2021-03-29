@@ -2,7 +2,6 @@ package com.example.fragment
 
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,12 +34,13 @@ class CustomDialogFragment : DialogFragment() {
         val sendBtn = view.findViewById<Button>(R.id.send_btn)
         val cancelBtn = view.findViewById<Button>(R.id.cancel_btn)
         val editText = view.findViewById<TextView>(R.id.text_view)
-        if (editText.text.length > 3){
-            //sendBtn.isClickable = true
-        }
         sendBtn.setOnClickListener{
-            listener.sendText(editText.text.toString())
+            if (editText.text.length > 3){
+                listener.sendText(editText.text.toString())
+                dismiss()
+            }
         }
+
         cancelBtn.setOnClickListener {
             dismiss()
         }

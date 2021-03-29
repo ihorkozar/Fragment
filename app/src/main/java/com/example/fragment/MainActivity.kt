@@ -37,7 +37,6 @@ class MainActivity : AppCompatActivity(), Fragment1.Fragment1Listener, CustomDia
 
     override fun swapFragment() {
         changeFragment()
-        changeColor()
     }
 
     private fun changeFragment(){
@@ -61,7 +60,7 @@ class MainActivity : AppCompatActivity(), Fragment1.Fragment1Listener, CustomDia
     }
 
     override fun sendText(sendText: String) {
-        val textView = Fragment2().view?.findViewById<TextView>(R.id.text_view)
+        val textView = supportFragmentManager.findFragmentByTag("F2")?.view?.findViewById<TextView>(R.id.text_view)
         textView?.text = sendText
     }
 }
